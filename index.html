@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  
+  <title>Interactive card details form</title>
+
+  <script src="./main.js" defer></script>
+</head>
+<body>
+  <section class="wrap">
+    <div class="cards_wrap">
+      <div class="card_f">
+        <img class="c_logo" src="./images/card-logo.svg" alt="">
+        <div class="c_info">
+          <span class="c_number">0000 0000 0000 0000</span>
+          <div class="cb_info">
+            <span class="c_name">JANE APPLESEED</span>
+            <div>
+              <span class="c_month">00</span>
+              <span>/</span>
+              <span class="c_year">00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card_b">
+        <span class="c_cvc">000</span>
+      </div>
+    </div>
+    
+    <form id="form" action="">
+      <div class="form_element">
+        <label for="c_name">cardholder name</label><br>
+        <input oninput="onInput(this)" type="text" id="name" name="c_name" maxlength="28" placeholder="e.g. Jane Appleseed">
+        <span class="error"></span>
+      </div><br>
+      
+      <div class="form_element">
+        <label for="c_number">card number</label><br>
+        <input oninput="onInput(this)" type="text" id="number" name="c_number" maxlength="19" placeholder="e.g. 1234 5678 9123 0000">
+        <span class="error"></span>
+      </div><br>
+  
+      <div class="form_element">
+        <div class="form_line">
+          <div>
+            <label>exp. date (MM/YY)</label>
+            <div class="exp_input">
+              <input oninput="onInput(this)" type="text" id="month" name="c_month" maxlength="3" placeholder="MM">
+              <input oninput="onInput(this)" type="text" id="year" name="c_year" maxlength="3" placeholder="YY">
+            </div>
+            <span class="error"></span>
+          </div>
+          <div class="cvc_wrap">
+            <label for="c_cvc">cvc</label>
+            <input oninput="onInput(this)" class="cvc" type="text" id="cvc" name="c_cvc" maxlength="3" placeholder="e.g. 123">
+            <span class="error"></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="confirm" onclick="send(event)">Confirm</button>
+    </form>
+    
+    <div id="comp" class="complete">
+      <img src="./images/icon-complete.svg" alt="checkmark">
+      <span class="comp_title">THANK YOU!</span>
+      <span class="comp_desc">We've added your card details</span>
+      <button onclick="cont()" class="continue">Continue</button>
+    </div>
+  </section>
+</body>
+</html>
